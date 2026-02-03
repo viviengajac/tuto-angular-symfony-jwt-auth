@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "dev up": "docker-compose -f compose-dev.yml up -d --build",
+        "dev down": "docker-compose -f compose-dev.yml down",
+        "preprod up": "docker-compose -f compose-preprod.yml up -d --build",
+        "preprod down": "docker-compose -f compose-preprod.yml down"
+    }
+}

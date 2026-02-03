@@ -1,0 +1,21 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+    # this is added to the beginning of all imported route names
+    prefix: '/api'
+    name_prefix: 'api_'
+
+api_login_check:
+    path: /api/login_check
+    methods: [POST]
+
+api_refresh_token:
+    path: /api/token/refresh
+
+api_token_invalidate:
+    path: /api/token/invalidate
+
+api_logout:
+    path: /api/logout

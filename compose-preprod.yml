@@ -1,0 +1,31 @@
+services:
+
+  angular:
+    image: ubuntu/apache2:latest
+    build:
+      context: ./
+      dockerfile: ./docker/preprod/client/Dockerfile
+    restart: always
+    pull_policy: build
+    ports:
+      - 8010:80
+    networks:
+      - nginx-proxy_default
+
+  symfony:
+    build:
+      context: ./
+      dockerfile: ./docker/preprod/api/Dockerfile
+    restart: always
+    ports:
+      - 8011:80
+    pull_policy: build
+    volumes:
+      - /opt/boilerplate-angular-symfony-docker/preprod/jwt:/app/config/jwt
+      - /opt/boilerplate-angular-symfony-docker/preprod/secrets:/app/config/secrets/preprod/decrypt
+    networks:
+      - nginx-proxy_default
+
+networks:
+    nginx-proxy_default:
+        external: true

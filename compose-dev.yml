@@ -1,0 +1,59 @@
+services:
+
+  angular:
+    build:
+      context: ./
+      dockerfile: ./docker/dev/client/Dockerfile
+    restart: always
+    ports:
+      - 4200:4200
+    volumes:
+     - ./client:/app
+     - /app/node_modules
+
+  mysql:
+    image: mysql
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
+    restart: always
+    environment:
+      TZ: Europe/Paris
+      LANG: C.UTF-8
+      MYSQL_CHARACTER_SET_SERVER: utf8mb4
+      MYSQL_COLLATION_SERVER: utf8mb4_general_ci
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_pass
+    ports:
+      - 3306:3306
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+  symfony:
+    build:
+      context: ./
+      dockerfile: ./docker/dev/api/Dockerfile
+    depends_on:
+       mysql:
+        condition: service_started
+        restart: true
+    restart: always
+    ports:
+     - 8000:80
+    volumes:
+     - ./api:/app
+    #  - /app/var
+    #  - /app/vendor
+
+  mailer:
+    image: axllent/mailpit
+    ports:
+      - "1025"
+      - "8025"
+    environment:
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1

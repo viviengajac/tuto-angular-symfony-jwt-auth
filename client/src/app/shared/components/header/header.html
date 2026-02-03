@@ -1,0 +1,11 @@
+<header>
+    <span [routerLink]="['/']">Home</span>
+    <div>
+        @if (authState.isLoggedIn()) {
+            <button [routerLink]="['/user-profile']">{{ authState.currentUser()?.email }}</button>
+            <button type="button" (click)="logout()">Se déconnecter</button>
+        } @else {
+            <button [routerLink]="['/login']">Se connecter</button>
+        }
+    </div>
+</header>

@@ -1,0 +1,12 @@
+# translations/VerifyEmailBundle.fr.yaml
+
+# clé utilisée par le bundle pour le message d'expiration
+# %count% est remplacé par le nombre d'heures ou minutes
+# Symfony gère automatiquement le pluriel avec |
+# Exemple pour 1 heure vs plusieurs heures
+
+# Pour les heures
+"This link will expire in %count% hour|This link will expire in %count% hours": "Ce lien expirera dans %count% heure|Ce lien expirera dans %count% heures"
+
+# Pour les minutes
+"This link will expire in %count% minute|This link will expire in %count% minutes": "Ce lien expirera dans %count% minute|Ce lien expirera dans %count% minutes"

@@ -1,0 +1,20 @@
+<p>Bonjour,</p>
+
+<p>Vous avez demandé à modifier l'adresse email associée à votre compte. Pour confirmer ce changement, cliquez sur le bouton ci-dessous :</p>
+
+<p style="text-align:center;">
+  <a href="{{ signedUrl|raw }}" style="display:inline-block;padding:10px 20px;background-color:#28a745;color:#fff;text-decoration:none;border-radius:5px;">
+    Confirmer mon adresse email
+  </a>
+</p>
+
+<p>Si le bouton ci-dessus ne fonctionne pas, copiez-collez le lien suivant dans votre navigateur :</p>
+<p><a href="{{ signedUrl|raw }}">{{ signedUrl|raw }}</a></p>
+
+<p>Ce lien expirera dans {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle', 'fr') }}.</p>
+
+<p>Une fois la confirmation effectuée, vous pourrez vous connecter avec votre nouvelle adresse email.</p>
+
+<p>Si vous n’êtes pas à l’origine de cette demande, vous pouvez ignorer cet email en toute sécurité.</p>
+
+<p>Cordialement,<br>L’équipe de support</p>

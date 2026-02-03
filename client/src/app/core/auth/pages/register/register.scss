@@ -1,0 +1,14 @@
+.error {
+  color: red;
+  border: solid 1px;
+  border-radius: 0.375em;
+  display: none;
+  font-size: 0.875em;
+  margin-bottom: 1em;
+  padding: 1em;
+
+  &.visible {
+    display: block;
+  }
+
+}

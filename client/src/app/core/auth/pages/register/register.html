@@ -1,0 +1,15 @@
+<h1>Créer un compte</h1>
+@if (feedback.status() != 'success') {
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <input type="email" name="email" id="email" placeholder="Email" formControlName="email">
+            <input type="password" name="password" id="password" placeholder="Mot de passe" formControlName="password">
+            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmez le mot de passe" formControlName="confirmPassword">
+            <label for="agreeTerms">J'accepte les <a href="">Conditions Générales d'Utilisation</a>.</label>
+            <input type="checkbox" name="agreeTerms" id="agreeTerms" formControlName="agreeTerms">
+            <button type="submit" [disabled]="loading()">
+                  {{ loading() ? 'Création en cours...' : 'Créer le compte' }}
+            </button>
+      </form>
+      <button [routerLink]="['/login']">Se connecter</button>
+}
+<app-feedback-display [status]="feedback.status" [message]="feedback.message"></app-feedback-display>

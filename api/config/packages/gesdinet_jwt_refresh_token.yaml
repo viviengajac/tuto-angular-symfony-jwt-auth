@@ -1,0 +1,17 @@
+gesdinet_jwt_refresh_token:
+    refresh_token_class: App\Entity\RefreshToken
+    ttl: 2592000 #define the refresh token TTL, this value is set in seconds and defaults to 1 month
+    ttl_update: true #configure the bundle to refresh the TTL on a refresh token when it is used
+    token_parameter_name: refresh_token #define the parameter name for the refresh token when it is read from the request, the default value is refresh_token
+    return_expiration: false #expiration Unix timestamp will be added to the response
+    return_expiration_parameter_name: refresh_token_expiration
+    single_use: true #configure the refresh token so it can only be consumed once. If set to true and the refresh token is consumed, a new refresh token will be provided
+    cookie:
+      enabled: true
+      same_site: lax               # default value
+      path: /                      # default value
+      domain: null                 # default value
+      http_only: true              # default value
+      secure: true                 # default value
+      partitioned: false           # default value
+      remove_token_from_body: true # default value

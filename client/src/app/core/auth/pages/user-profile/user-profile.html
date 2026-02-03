@@ -1,0 +1,27 @@
+<h1>Profil</h1>
+
+<div class="flex align-items-center">
+  <p><strong>Email :</strong> {{ authState.currentUser()?.email }}</p>
+  <button (click)="emailModal.modal.open()">Modifier</button>
+</div>
+<div class="flex align-items-center">
+  <p><strong>Mot de passe :</strong>********</p>
+  <button (click)="passwordModal.modal.open()">Modifier</button>
+</div>
+
+<app-modal-display #emailModal modalId="emailModal">
+    <form [formGroup]="emailForm" (ngSubmit)="onSubmit(emailForm, authGateway.changeEmail.bind(authGateway))">
+        <input type="email" name="email" id="email" placeholder="Nouvelle adresse email" formControlName="email" (input)="onEmailChange()">
+        <input type="password" name="currentPassword" id="currentPassword" placeholder="Mot de passe" formControlName="currentPassword" minlength="8" maxlength="32">
+        <button type="submit" [disabled]="emailForm.invalid || authState.currentUser()?.email == emailForm.controls['email'].value">Valider</button>
+    </form>
+</app-modal-display>
+
+<app-modal-display #passwordModal modalId="passwordModal">
+    <form [formGroup]="passwordForm" (ngSubmit)="onSubmit(passwordForm, authGateway.changePassword.bind(authGateway))">
+        <input type="password" name="currentPassword" id="currentPassword" placeholder="Mot de passe actuel" formControlName="currentPassword" minlength="8" maxlength="32">
+        <input type="password" name="password" id="password" placeholder="Nouveau mot de passe" formControlName="password" minlength="8" maxlength="32">
+        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirmer le mot de passe" formControlName="confirmPassword" minlength="8" maxlength="32">
+        <button type="submit" [disabled]="passwordForm.invalid">Valider</button>
+    </form>
+</app-modal-display>

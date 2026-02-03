@@ -1,0 +1,18 @@
+<h1>Se connecter</h1>
+@if (feedback.status() != 'warning') {
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <input type="email" name="email" id="email" placeholder="Email" formControlName="email">
+            <input type="password" name="password" id="password" placeholder="Mot de passe" formControlName="password" minlength="8" maxlength="32">
+            <button type="submit" [disabled]="loading()">
+                  {{ loading() ? 'Connexion...' : 'Se connecter' }}
+            </button>
+      </form>
+}
+<app-feedback-display [status]="feedback.status" [message]="feedback.message"></app-feedback-display>
+@if (feedback.status() == 'warning') {
+      <button type="button" [disabled]="loadingResend()" (click)="resendEmail()">
+            Renvoyer le lien de confirmation
+      </button>
+}
+<button [routerLink]="['/forgot-password']">Mot de passe oublié ?</button>
+<button [routerLink]="['/register']">Créer un compte</button>

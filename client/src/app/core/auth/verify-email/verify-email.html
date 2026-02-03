@@ -1,0 +1,8 @@
+@if (isVerifiedEmail()) {
+    <p>Votre adresse email a bien été confirmée. Vous pouvez maintenant vous connecter.</p>
+    <button [routerLink]="['/login']">Se connecter</button>
+} @else if (getError()) {
+    <p>{{ getError() }}</p>
+} @else {
+    <p>Une erreur est survenue. Veuillez réessayer plus tard.</p>
+}

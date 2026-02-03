@@ -1,0 +1,22 @@
+<h1>Bienvenue sur {{ app_name }} !</h1>
+
+<p>Bonjour,</p>
+
+<p>Merci de vous être inscrit(e) sur notre plateforme. Pour activer votre compte, veuillez confirmer votre adresse email en cliquant sur le bouton ci-dessous :</p>
+
+<p style="text-align:center;">
+  <a href="{{ signedUrl|raw }}" style="display:inline-block;padding:10px 20px;background-color:#28a745;color:#fff;text-decoration:none;border-radius:5px;">
+    Confirmer mon compte
+  </a>
+</p>
+
+<p>Si le bouton ci-dessus ne fonctionne pas, copiez-collez le lien suivant dans votre navigateur :</p>
+<p><a href="{{ signedUrl|raw }}">{{ signedUrl|raw }}</a></p>
+
+<p>Ce lien expirera dans {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle', 'fr') }}.</p>
+
+<p>Après confirmation, vous pourrez accéder à toutes les fonctionnalités de votre compte.</p>
+
+<p>Si vous n’avez pas créé ce compte, vous pouvez ignorer cet email.</p>
+
+<p>Cordialement,<br>L’équipe de support</p>

@@ -1,0 +1,19 @@
+name: Continuous deployment preprod
+
+on:
+  push:
+    branches: 
+      - preprod
+
+jobs:
+
+  deployment:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Portainer Webhook pull and redeploy
+      uses: fjogeleit/http-request-action@v1
+      with:
+        url: '${{ secrets.PORTAINER_WEBHOOK_URL_PREPROD }}'
+        method: 'POST'
+        preventFailureOnNoResponse: true

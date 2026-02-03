@@ -1,0 +1,14 @@
+@if (modal.isOpen()) {
+  <div class="modal-backdrop"
+       [class.closing]="modal.isClosing()"
+       (click)="onBackdropClick($event)">
+    <div class="modal-content">
+      <ng-content></ng-content>
+      <app-feedback-display 
+        [status]="feedback.status" 
+        [message]="feedback.message">
+      </app-feedback-display>
+      <button type="button" (click)="modal.close()">Annuler</button>
+    </div>
+  </div>
+}

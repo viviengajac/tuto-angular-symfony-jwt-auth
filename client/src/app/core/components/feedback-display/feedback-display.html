@@ -1,0 +1,8 @@
+@if (status()) {
+  <div
+    class="status" 
+    [class.error]="status() === 'error'" 
+    [class.success]="status() === 'success'">
+    {{ message() }}
+  </div>
+}

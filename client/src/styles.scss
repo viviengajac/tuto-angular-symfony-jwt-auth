@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Forms */
+/* Status: error / success */
+// .status {
+//     display: none;
+
+//     &.visible {
+//         display: block;
+
+//         &.error {
+//             color: red;
+//         }
+
+//         &.success {
+//             color: green;
+//         }
+//     }
+// }
+
+
+/* Layout */
+.flex {
+    display: flex;
+}
+.align-items-center {
+    align-items: center;
+}

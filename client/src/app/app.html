@@ -1,0 +1,11 @@
+
+@if (authGateway.apiStatus() === false) {
+  <div class="api-error">
+    Impossible de contacter le serveur. Veuillez réessayer plus tard.
+  </div>
+} @else if (authState.isLoggedIn() === null) {
+  <!-- <app-loader message="Vérification de la session..."></app-loader> -->
+   Loading
+} @else {
+  <router-outlet></router-outlet>
+}
