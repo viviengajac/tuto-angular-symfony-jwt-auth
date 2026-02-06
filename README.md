@@ -1,3 +1,5 @@
+<h1>JWT pour Angular / API Symfony</h1>
+
 Ce tutorial décrit les authentifications et les droits d'accès pour une application web basée sur une API Symfony et un client Angular, en utilisant une authentification JWT.
 Le détail de la mise en œuvre est décrit dans le fichier pdf.
 
